@@ -19,7 +19,7 @@ steps:
 - task: TomcatDeployment@1
   inputs:
     TomcatUrl: 'http://20.39.194.213:8080'
-    Username: 'admin'
+    Username: 'tomcat'
     Password: 'admin123'
     Warfile: 'target/myweb-8.7.3.war'
     Context: '/ourapp'
