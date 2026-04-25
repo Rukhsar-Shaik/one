@@ -20,7 +20,7 @@ steps:
   inputs:
     TomcatUrl: 'http://20.39.194.213:8080'
     Username: 'tomcat'
-    Password: 'admin123'
+    Password: 'admin@123'
     Warfile: 'target/myweb-8.7.3.war'
     Context: '/ourapp'
     ServerVersion: '7OrAbove'
