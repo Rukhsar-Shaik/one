@@ -18,9 +18,9 @@ steps:
 # 🔹 Deploy WAR to Tomcat
 - task: TomcatDeployment@1
   inputs:
-    TomcatUrl: 'http://20.39.194.213:8080'
-    Username: 'tomcat'
-    Password: 'admin@123'
-    Warfile: 'target/myweb-8.7.3.war'
+    TomcatUrl: '$(URL)'
+    Username: 'admin'
+    Password: '$(password)'
+    Warfile: 'target/*.war'
     Context: '/ourapp'
     ServerVersion: '7OrAbove'
