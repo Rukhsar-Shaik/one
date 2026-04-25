@@ -5,13 +5,22 @@ pool:
   name: flm-pool
 
 steps:
-  - task: Maven@4
-    inputs:
-      mavenPomFile: 'pom.xml'
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      javaHomeOption: 'JDKVersion'
-      mavenVersionOption: 'Default'
-      mavenAuthenticateFeed: false
-      effectivePomSkip: false
-      sonarQubeRunAnalysis: false
+
+# 🔹 Build using Maven
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+
+# 🔹 Deploy WAR to Tomcat
+- task: TomcatDeployment@1
+  inputs:
+    TomcatUrl: 'http://20.39.194.213:8080'
+    Username: 'admin'
+    Password: 'admin123'
+    Warfile: 'target/*.war'
+    Context: '/ourapp'
+    ServerVersion: '7OrAbove'
